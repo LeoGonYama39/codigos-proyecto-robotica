@@ -17,3 +17,8 @@ resetSim.m código para resetear el estado de la simulación.
 UR5DHSyms.m: código para calcular la cinemática directa del UR5e respecto a sus posiciones articulares.
 
 UR5eCD.m: código para calcular la cinemática directa dle UR5e.
+
+
+Advertencias:
+Se necesita el Add-On de RoboDK de Matlab.
+Los códigos que se conectan a RoboDK mediante Matlab podrían fallar en la primera ejecución. Correr el código nuevamente si pasa.
