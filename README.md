@@ -1,4 +1,4 @@
-Repositorio con los códigos del proyecto final de Robótica, Primavera 2026
+## Repositorio con los códigos del proyecto final de Robótica, Primavera 2026
 
 obj: carpeta con los objetos a colocar durante la ejecución de un código.
 
