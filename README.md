@@ -15,4 +15,4 @@
 ## Add-Ons y avisos:
 
 - Se necesita el Add-On de RoboDK de Matlab y Robotics System Toolbox.
---Los códigos que se conectan a RoboDK mediante Matlab podrían fallar en la primera ejecución. Correr el código nuevamente si pasa.
+- Los códigos que se conectan a RoboDK mediante Matlab podrían fallar en la primera ejecución. Correr el código nuevamente si pasa.
