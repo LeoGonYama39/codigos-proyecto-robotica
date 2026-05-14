@@ -13,12 +13,14 @@ a6 = 0;         d6 = 0.0996;    alpha6 = deg2rad(0);
 a7 = 0;         d7 = 0.1669;    alpha7 = deg2rad(0);    theta7 = deg2rad(0);
 
 % Posiciones angulares de cada articulación
-theta1 = deg2rad(0);
+theta1 = deg2rad(100);
 theta2 = deg2rad(-90);
-theta3 = deg2rad(-90);
-theta4 = deg2rad(0);
-theta5 = deg2rad(90);
-theta6 = deg2rad(0);
+theta3 = deg2rad(-234);
+theta4 = deg2rad(342);
+theta5 = deg2rad(12.3);
+theta6 = deg2rad(-143.23);
+
+q = rad2deg([theta1 theta2 theta3 theta4 theta5 theta6]);
 
 fprintf("Ángulos de cada motor [deg]:\n")
 fprintf("Base: %.2fº\n", rad2deg(theta1))
@@ -83,7 +85,17 @@ fprintf('La posición cartesiana del EF es [%.4f, %.4f, %.4f] [mm]\n\n', X_EF, Y
 ang = rotationToURVector(T07(1:3, 1:3));
 fprintf('El vector de rotación es [%.4f, %.4f, %.4f] [grad]\n', rad2deg(ang));
 
-% Función que extrae el ángulo de una matriz de rotación
+%% Mover en RoboDK para comprobar
+
+%% Mover en RoboDK
+RDK = Robolink; %Hacemos la conexión Matlab-RoboDK
+path = RDK.getParam('PATH_LIBRARY'); %Configuración de librería
+RDK.ItemList(); %Para visualizar todos los elementos disponibles en RoboDK
+robot=RDK.Item('UR5e'); %Creamos el objeto robot en matlab de la clase UR3 
+
+robot.MoveJ(q);
+
+%% Función que extrae el ángulo de una matriz de rotación
 function ur_rotation_vector = rotationToURVector(R)
 % Verificar que la matriz sea válida
     if ~isequal(size(R), [3, 3])
