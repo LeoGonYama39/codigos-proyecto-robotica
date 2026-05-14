@@ -8,7 +8,7 @@ syms n
 q1i = deg2rad(0);
 q2i = deg2rad(-90);
 q3i = deg2rad(-90);
-q4i = deg2rad(0);
+q4i = deg2rad(-90);
 q5i = deg2rad(90);
 q6i = deg2rad(0);
 qi = [q1i, q2i, q3i, q4i, q5i, q6i];
@@ -39,7 +39,7 @@ robot.MoveJ(qHome);
 for i = 1:length(ts)
     fprintf("Tiempo de sim: %.2f\n", ts(i))
     robot.MoveJ(q(i, :));
-    pause(0.01)
+    pause(0.2)
 end 
 
 %% Función de control cinemático
@@ -90,14 +90,10 @@ J = [j11 j12 j13 j14 j15 j16
 J_inv = pinv(J);
 
 % 4. Deseadas
-if t < 2
-    xd = 0.5;
-    yd = 0.5;
-    zd = 0.5;
-elseif t >= 2 && t < 5
-    xd = 0.2;
-    yd = 0.5;
-    zd = 0.5;
+if t < 5
+    xd = -0.0867;
+    yd = 0.434;
+    zd = 0.2925;
 elseif t >= 5 && t < 10
     xd = 0.2;
     yd = 0.1;
@@ -107,9 +103,9 @@ elseif t >= 10 && t < 20
     yd = 0.2 + 0.1*sin(2*t);
     zd = 0.543;
 elseif t >= 20 && t <= 25
-    xd = 0.2;
-    yd = 0.1;
-    zd = 0.7;
+    xd = 0.597;
+    yd = -0.513;
+    zd = -0.275;
 end
 Xd = [xd; yd; zd];
 
