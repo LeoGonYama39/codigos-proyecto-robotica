@@ -9,6 +9,7 @@
 - resetSim.m código para resetear el estado de la simulación.
 - UR5DHSyms.m: código para calcular la cinemática directa del UR5e respecto a sus posiciones articulares.
 - UR5eCD.m: código para calcular la cinemática directa del UR5e.
+- qParaPoliQuint.mat: las q del movimiento con polinomio quíntico. Para no calcularlas siempre.
 
 ---
 
